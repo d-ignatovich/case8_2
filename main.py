@@ -51,7 +51,20 @@ def moveDown(currentDir):
         print('Directory or file not found.')
         return path
 
-        
+    
+def findFiles(target, path):
+    command_list = []
+    while True:
+        for root, dirs, files in os.walk(path):
+            for file in files: 
+                if(file.endswith(target)):
+                    command_list = list(os.path.join(root,file))
+                    continue
+            else:
+                return print("File not found.")
+    return print(command_list)
+
+
 def main():
     while True:
         print(os.getcwd())
