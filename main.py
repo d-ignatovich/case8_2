@@ -65,6 +65,10 @@ def findFiles(target, path):
     return print(command_list)
 
 
+def countFiles(path):
+    return sum(len(filenames) for _, _, filenames in os.walk(path))
+
+
 def main():
     while True:
         print(os.getcwd())
