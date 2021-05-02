@@ -74,6 +74,15 @@ def findFiles(target, path):
 def countFiles(path):
     return sum(len(filenames) for _, _, filenames in os.walk(path))
 
+  
+def countBytes(path):
+    size = 0
+    for i in os.listdir(path):
+        if os.path.isdir(path + '\\' + i):  # directory
+            size += os.path.getsize(countBytes(path + '\\' + i))
+        elif os.path.isfile(path + '\\' + i):  # regular file
+            size += os.path.getsize(path + '\\' + i)
+    return size 
 
 def main():
     while True:
