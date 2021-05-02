@@ -71,7 +71,7 @@ def findFiles(target, path):
                     continue
             else:
                 return print("File not found.")
-    return print(command_list)
+    return print(*command_list)
 
 
 def countFiles(path):
