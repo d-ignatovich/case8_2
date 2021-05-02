@@ -1,3 +1,9 @@
+  
+"""Case-study
+Developers:   Ignatovich D. (60%),
+              Miller A. (45%),
+              Poylova E. (50%)
+"""
 import os
 import os.path
 
