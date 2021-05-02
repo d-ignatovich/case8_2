@@ -30,11 +30,14 @@ def runCommand(command):
         currentDir = input('Enter the folder: ')
         moveDown(currentDir)
     elif command == '4':
-        path = input()
-        countFiles(path)
+        path = input('Enter the folder: ')
+        print(countFiles(path))
     elif command == '5':
+        path = input('Enter the folder: ')
         countBytes(path)
     elif command == '6':
+        target = input('Enter the file name: ')
+        path = input('Enter the folder: ')
         findFiles(target, path)
     else:
         print('The program is finished.')
