@@ -73,19 +73,25 @@ def findFiles(target, path):
 
 
 def countFiles(path):
-    '''Recursive function that counts the number of files in the specified "path" directory'''
-    return sum(len(filenames) for _, _, filenames in os.walk(path))
+    """Counting the number of files."""
+    count = 0
+    for name in os.listdir(path):
+        if os.path.isdir(os.path.join(path, name)):
+            count += countFiles(os.path.join(path, name))
+        elif os.path.isfile(os.path.join(path, name)):
+            count += 1
+    return count
 
-  
+
 def countBytes(path):
-    '''Recursive function that counts the total volume (in bytes).'''
-    size = 0
-    for i in os.listdir(path):
-        if os.path.isdir(path + '\\' + i):  # directory
-            size += os.path.getsize(countBytes(path + '\\' + i))
-        elif os.path.isfile(path + '\\' + i):  # regular file
-            size += os.path.getsize(path + '\\' + i)
-    return size 
+    """Return total size of all regular files in directory tree at *path*."""
+    bytes = 0
+    for name in os.listdir(path):
+        if os.path.isdir(os.path.join(path, name)):
+            bytes += countBytes(os.path.join(path, name))
+        elif os.path.isfile(os.path.join(path, name)):
+            bytes += os.path.getsize(path)
+    return bytes
 
   
 def main():
