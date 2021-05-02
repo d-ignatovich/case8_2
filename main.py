@@ -39,8 +39,7 @@ def runCommand(command):
         target = input('Enter the file name: ')
         path = input('Enter the folder: ')
         findFiles(target, path)
-    else:
-        print('The program is finished.')
+    
 
 
 def moveUp():
