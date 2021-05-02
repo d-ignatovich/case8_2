@@ -33,7 +33,7 @@ def runCommand(command):
         print(countFiles(path))
     elif command == '5':
         path = input('Enter the folder: ')
-        countBytes(path)
+        print(countBytes(path))
     elif command == '6':
         target = input('Enter the file name: ')
         path = input('Enter the folder: ')
@@ -41,6 +41,7 @@ def runCommand(command):
     
 
 def moveUp():
+  """Makes the parent directory current."""
     path = os.getcwd()
     path = os.path.abspath(os.path.join(path, os.pardir))
     print(path)
@@ -48,6 +49,7 @@ def moveUp():
 
 
 def moveDown(currentDir):
+  """Makes the directory in currentDir the current directory."""
     path = os.getcwd()
     list = os.listdir(path)
     if currentDir in list:
