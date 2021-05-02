@@ -1,4 +1,3 @@
-  
 """Case-study
 Developers:   Ignatovich D. (60%),
               Miller A. (45%),
@@ -41,7 +40,6 @@ def runCommand(command):
         findFiles(target, path)
     
 
-
 def moveUp():
     path = os.getcwd()
     path = os.path.abspath(os.path.join(path, os.pardir))
@@ -61,6 +59,7 @@ def moveDown(currentDir):
 
     
 def findFiles(target, path):
+    '''Function that generates a list of paths to files whose name contains target.'''
     command_list = []
     while True:
         for root, dirs, files in os.walk(path):
@@ -74,10 +73,12 @@ def findFiles(target, path):
 
 
 def countFiles(path):
+    '''Recursive function that counts the number of files in the specified "path" directory'''
     return sum(len(filenames) for _, _, filenames in os.walk(path))
 
   
 def countBytes(path):
+    '''Recursive function that counts the total volume (in bytes).'''
     size = 0
     for i in os.listdir(path):
         if os.path.isdir(path + '\\' + i):  # directory
@@ -86,6 +87,7 @@ def countBytes(path):
             size += os.path.getsize(path + '\\' + i)
     return size 
 
+  
 def main():
     while True:
         print(os.getcwd())
